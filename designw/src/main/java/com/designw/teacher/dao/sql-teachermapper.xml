@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.item.teacher.dao.IteacherDao">
+    <select id="selectManager" parameterType="com.item.model.Teacher" resultType="list">
+        SELECT * FROM teacher WHERE te_id=#{teacherId} and te_pwd=#{teacherPwd}
+</select>
+    <delete id="deleteManager" parameterType="com.item.model.Manager" flushCache="true" >
+        DELETE FROM teacher WHERE teacher_id=#{teacherId} AND teacher_pwd=#{teacherPwd}
+    </delete>
+    <insert id="insertManager" parameterType="com.item.model.Manager" flushCache="true" >
+        INSERT INTO teacher (teacher_id,teacher_name,teacher_pwd,teacher_phone,te_Cc)
+        VALUES
+        (#{managerId},#{managerName},#{managerPwd})
+    </insert>
+    <update id="updateManager" parameterType="com.item.model.Manager" flushCache="true" >
+        UPDATE manager SET manager_pwd=#{managerPwd} WHERE manager_id=#{managerId}
+    </update>
+</mapper>

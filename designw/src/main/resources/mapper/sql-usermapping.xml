@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.designw.pare.dao.IuserDao">
+<select id="selectUsersData" parameterType="com.designw.model.Users" resultMap="ds">
+    SELECT * FROM users WHERE users_id=#{userId} AND users_pwd=#{userPwd}
+</select>
+<resultMap id="ds" type="com.designw.model.Users">
+    <id column="users_id" property="userId"/>
+    <result column="users_pwd" property="userPwd"/>
+    <result column="users_type" property="userType"/>
+</resultMap>
+<select id="getUsers" parameterType="com.designw.model.Users" resultMap="ds">
+    SELECT * FROM users WHERE users_id=#{userId}
+</select>
+</mapper>

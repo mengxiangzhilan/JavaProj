@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.designw.student.dao.IstudentDao">
+    <select id="selectsandg" parameterType="com.designw.model.Student" resultMap="Student1">
+        SELECT a.student_id,a.college_id,a.class,a.student_name,b.grad_id,b.grad_name
+        FROM student a LEFT join graduation b ON a.student_id=b.student_id WHERE a.student_id=#{studentId}
+    </select>
+
+   <select id="selecttegr" resultMap="Teacher1" parameterType="int">
+       SELECT a.teacher_name,a.teacher_id,b.grad_name,b.grad_id FROM teacher a LEFT JOIN graduation b
+       ON a.teacher_id=b.teacher_id where a.college_id=#{collegeIiD}
+   </select>
+    <select id="getGraduation" parameterType="int" resultMap="Graduation">
+        SELECT * FROM graduation WHERE student_id=#{studentId}
+    </select>
+    <update id="updateGraduation" parameterType="com.designw.model.Graduation" flushCache="true">
+        UPDATE graduation SET student_id=#{studentId} WHERE grad_id=#{gradId}
+    </update>
+    <resultMap id="Student1" type="com.designw.model.GraduationStudnt">
+        <id column="student_id" property="student.studentId"/>
+        <result column="student_name" property="student.studentName"/>
+        <result column="class" property="student.class1"/>
+        <result column="college_id" property="student.collegeIiD"/>
+        <result column="grad_id" property="graduation.gradId"/>
+        <result column="grad_name" property="graduation.gradName"/>
+    </resultMap>
+    <resultMap id="Graduation" type="com.designw.model.Graduation">
+        <id column="grad_id" property="gradId"/>
+        <result column="student_id" property="studentId"/>
+        <result column="teacher_id" property="teacherId"/>
+        <result column="grad_name" property="gradName"/>
+    </resultMap>
+    <resultMap id="Teacher1" type="com.designw.model.GraduationTeacher">
+        <id column="teacher_id" property="teacher.teacherId"/>
+        <result column="teacher_name" property="teacher.teacherName"/>
+        <collection property="graduationList" javaType="list" ofType="com.designw.model.Graduation">
+            <id column="grad_id" property="gradId"/>
+            <result column="grad_name" property="gradName"/>
+        </collection>
+    </resultMap>
+</mapper>

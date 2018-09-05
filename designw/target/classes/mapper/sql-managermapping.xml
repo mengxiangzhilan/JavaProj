@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.designw.pare.dao.ImanagerDao">
+    <!--对管理员表操作-->
+    <select id="selectManager"  resultMap="Manager">
+        SELECT * FROM manager
+    </select>
+    <delete id="deleteManager" parameterType="com.designw.model.Manager" flushCache="true" >
+        DELETE FROM manager WHERE manager_id=#{managerId}
+    </delete>
+    <insert id="insertManager" parameterType="com.designw.model.Manager" flushCache="true" >
+        INSERT INTO manager (manager_id,manager_name)
+VALUES
+	(#{managerId},#{managerName})
+    </insert>
+    <select id="getManager" parameterType="com.designw.model.Manager" resultMap="Manager">
+        SELECT * FROM manager WHERE manager_id=#{managerId}
+    </select>
+
+    <!--对用户表操作-->
+    <delete id="deleteUsers" parameterType="com.designw.model.Users" flushCache="true" >
+        DELETE FROM users  WHERE users_id=#{userId}
+    </delete>
+    <insert id="insertUsers" parameterType="com.designw.model.Users" flushCache="true" >
+        INSERT INTO users (users_id,users_pwd,users_type )
+        VALUES
+        (#{userId},#{userPwd},#{userType})
+    </insert>
+    <update id="updateUsers" parameterType="com.designw.model.Users" flushCache="true" >
+        UPDATE users SET users_pwd=#{userPwd} WHERE users_id=#{userId}
+    </update>
+    <select id="selectUsers"  resultMap="Users" >
+        SELECT * FROM users
+    </select>
+    <!--学院表操作-->
+    <delete id="deleteCollege" parameterType="com.designw.model.College" flushCache="true" >
+        DELETE FROM college  WHERE college_id=#{collegeerId}
+    </delete>
+    <insert id="insertCollege" parameterType="com.designw.model.College" flushCache="true" >
+        INSERT INTO college (college_id,college_name )
+        VALUES
+        (#{collegeerId},#{collegeerName})
+    </insert>
+    <select id="getCollege" parameterType="com.designw.model.College" resultMap="College">
+        SELECT * FROM college WHERE college_id=#{collegeerId}
+    </select>
+    <select id="selectCollege"  resultMap="College">
+        SELECT * FROM college
+    </select>
+    <update id="updateCollege" parameterType="com.designw.model.College" flushCache="true" >
+        UPDATE college SET college_name=#{collegeerName} WHERE college_id=#{collegeerId}
+    </update>
+    <resultMap id="College" type="com.designw.model.College">
+        <id column="college_id" property="collegeerId"/>
+        <result column="college_name" property="collegeerName"/>
+    </resultMap>
+    <!--学生表操作-->
+    <select id="selectStudent"  resultMap="Student" >
+        SELECT * FROM student /*要分页*/
+    </select>
+    <insert id="insertStudent" parameterType="com.designw.model.Student" flushCache="true" >
+        INSERT INTO student (student_id,student_name,class,college_id)
+VALUES
+	(#{studentId},#{studentName},#{class1},#{collegeIiD})
+    </insert>
+    <delete id="deleteStudent" parameterType="com.designw.model.Student" flushCache="true" >
+        DELETE FROM student  WHERE student_id=#{studentId}
+    </delete>
+    <select id="getStudentNews" parameterType="com.designw.model.Student" resultMap="Student">
+        SELECT * FROM student WHERE student_id=#{studentId}
+    </select>
+    <update id="updateStudent" parameterType="com.designw.model.Teacher" flushCache="true">
+        UPDATE student SET student_name=#{studentName},class=#{class1}
+        WHERE student_id=#{studentId}
+    </update>
+    <resultMap id="Student" type="com.designw.model.Student">
+        <id column="student_id" property="studentId"/>
+        <result column="student_name" property="studentName"/>
+        <result column="class" property="class1"/>
+        <result column="college_id" property="collegeIiD"/>
+    </resultMap>
+    <!--教师表操作-->
+
+    <select id="selectTeacher"  resultMap="Teacher" >
+        SELECT * FROM teacher /*要分页*/
+    </select>
+    <insert id="insertTeacher" parameterType="com.designw.model.Teacher" flushCache="true" >
+        INSERT INTO teacher (teacher_id,teacher_name,teacher_phone,college_id)
+        VALUES
+        (#{teacherId},#{teacherName},#{teacherPhone},#{collegeIiD})
+    </insert>
+    <delete id="deleteTeacher" parameterType="com.designw.model.Teacher" flushCache="true" >
+    DELETE FROM teacher WHERE teacher_id=#{teacherId}
+</delete>
+    <select id="getTeacherNews" parameterType="com.designw.model.Teacher" resultMap="Teacher">
+        SELECT * FROM teacher WHERE teacher_id=#{teacherId}
+    </select>
+    <update id="updateTeacher" parameterType="com.designw.model.Teacher" flushCache="true">
+        UPDATE teacher SET teacher_name=#{teacherName},teacher_phone=#{teacherPhone}
+         WHERE teacher_id=#{teacherId}
+    </update>
+    <resultMap id="Teacher" type="com.designw.model.Teacher">
+        <id column="teacher_id" property="teacherId"/>
+        <result column="teacher_name" property="teacherName"/>
+        <result column="teacher_phone" property="teacherPhone"/>
+        <result column="college_id" property="collegeIiD"/>
+    </resultMap>
+    <!--毕业表操作-->
+    <select id="selectGraduation" resultMap="GraduationNew">
+        SELECT c.student_id,c.teacher_id,gradscore_assess,a.gradscore_id,SUM(b.details_score) as sumb
+         FROM graduationscore a,details b,graduation c
+         WHERE c.grad_id=a.grad_id AND a.gradscore_id=b.gradscore_id
+         GROUP BY b.gradscore_id
+    </select>
+    <select id="getGraduationNews" parameterType="int" resultMap="GraduationNew">
+        SELECT c.student_id,c.teacher_id,gradscore_assess,a.gradscore_id,SUM(b.details_score) as sumb
+        FROM graduationscore a,details b,graduation c
+        WHERE c.grad_id=a.grad_id AND a.gradscore_id=b.gradscore_id AND c.student_id=#{studentid}
+    </select>
+    <resultMap id="GraduationNew" type="com.designw.model.GraduationNew">
+        <result column="student_id" property="graduation.studentId"/>
+        <result column="teacher_id" property="graduation.teacherId"/>
+        <result column="sumb" property="SUM"/>
+        <collection property="graduationScoreList" javaType="list" ofType="com.designw.model.GraduationScore">
+            <result property="gradscoreAssess" column="gradscore_assess"/>
+        </collection>
+    </resultMap>
+    <resultMap id="Manager" type="com.designw.model.Manager">
+        <id column="manager_id" property="managerId"/>
+        <result column="manager_name" property="managerName"/>
+    </resultMap>
+    <resultMap id="Users" type="com.designw.model.Users">
+        <id column="users_id" property="userId"/>
+        <result column="users_pwd" property="userPwd"/>
+        <result column="users_type" property="userType"/>
+    </resultMap>
+
+
+
+
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd
+                        ">
+    <context:property-placeholder location="classpath:/log4j.properties" />
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.designw" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+
+        <property name="url" value="jdbc:mysql://localhost:3306/bishe?useUnicode=true&amp;characterEncoding=UTF-8" />
+        <property name="username"><value>root</value></property>
+        <property name="password"><value>578113038</value></property>
+
+        <property name="maxActive"><value>20</value></property>
+        <property name="initialSize"><value>1</value></property>
+        <property name="maxWait"><value>60000</value></property>
+        <property name="maxIdle"><value>20</value></property>
+        <property name="minIdle"><value>3</value></property>
+        <property name="removeAbandoned"><value>true</value></property>
+        <property name="removeAbandonedTimeout"><value>180</value></property>
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描mapping.xml文件 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--<property name="configLocation" value="classpath:config/springmybatis.xml"/>-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                            reasonable=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.designw.**.dao" />
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <!--你哪些方法需要事务你就在那个方法上写一个@Transactional 这个标记-->
+   <!-- <tx:annotation-driven transaction-manager="transactionManager"  />
+    &lt;!&ndash; (事务管理)transaction Manager, use JtaTransactionManager for global tx &ndash;&gt;
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>-->
+
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+    <!--标签声明配置事物-->
+ <!--  <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="upd*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="del*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="execute*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="do*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="set*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="get*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="show*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="list*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="has*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="ntx*" propagation="NOT_SUPPORTED"/>
+            <tx:method name="*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution()"/>
+    </aop:config>-->
+</beans>
