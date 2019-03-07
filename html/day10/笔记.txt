@@ -1,0 +1,31 @@
+复习：
+1、尺寸：%,px,em,rem,cm,mm,pt,in...
+2、颜色：
+  1)rgb(255,255,255) 
+    rgba(255,255,255,0.5)
+  2)#rrggbb
+  3)颜色名
+3、溢出 
+  1)overflow:visible/hidden/scroll/auto
+  2)overflow-x
+    overflow-y
+
+今日知识：
+1、边框
+  1)border:1px solid black
+          width style color
+  2)分解写法：
+    border-width/border-style/border-color
+  3)消除边框：border:none;
+  4)单边设置：
+    border-left,border-right,
+    border-top,border-bottom
+  5)特殊用例：倒三角
+    border:10px solid transparent;
+	border-top-color:#DDD;
+	width: 0;
+	height: 0;
+
+2、焦点环 outline
+  1)outline:1px solid red
+  2)消除：outline:0;

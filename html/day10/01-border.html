@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框</title>
+	<style>
+	.box>.center-box>div{
+		float: left;
+	}
+	#reg-form{
+		width: 400px;
+	}
+	#reg-info{
+		width: 280px;
+		height: 605px;
+		border-left: 1px solid #e6e6e6;
+		padding-left: 90px;
+		margin-left: 104px;
+	}
+	/*表单项*/
+	.form-item{
+		width: 398px;
+		height: 52px;
+		border: 1px solid #ddd;
+		margin-bottom: 20px;
+	}
+	.form-item>label{
+		width: 90px;
+		height: 52px;
+		line-height: 52px;
+		padding-left: 20px;
+	}
+	.form-item>label,
+	.form-item>input{
+		float: left;
+	}
+	.form-item>input{
+		border: none;
+		margin-top: 18px;
+		margin-left: 20px;
+		outline: 0;
+	}
+	.cc{
+		border-right: 1px solid #ddd;
+	}
+	#reg-info img{
+		vertical-align: middle;
+	}
+	#reg-info a{
+		text-decoration: none;
+		color: #666;
+	}
+	#reg-info a:hover{
+		font-weight: bold;
+		color: #333;
+	}
+	.house-box{
+		border-bottom: 1px solid #e6e6e6;
+		padding-bottom: 24px;
+		margin-bottom: 24px;
+	}
+	.sjx{
+		border:5px solid transparent;
+		border-top-color:#ccc;
+		width: 0;
+		height: 0;
+		position: relative;
+		top: 14px;
+		right: -4px;
+	}
+	</style>
+</head>
+<body>
+
+	<div>
+		
+
+	</div>
+	<div class="box">
+		<div class="center-box">
+			<!-- 表单 -->
+			<div id="reg-form">
+				<form action="reg.jsp"
+					  method="post">
+		<div class="form-item"><label>用　户　名</label><input type="text"></div>
+		<div class="form-item"><label></label><input type="text"></div>
+		<div class="form-item"><label></label><input type="text"></div>
+		<div class="form-item"><label class="cc">中国0086<span class="sjx"></span></label><input type="text"></div>
+		<div class="form-item"><label></label><input type="text"></div>
+		<div class="form-item"><label></label><input type="text"></div>
+				</form>
+			</div>
+			<!-- 注册信息 -->
+			<div id="reg-info">
+				<div class="house-box"><a href="#"><img src="house.png"> 企业用户注册</a></div>
+				<div><a href="#"><img src="earth.png"> INTERNATIONAL
+CUSTOMERS</a></div>
+			</div>
+		</div>
+	</div>
+	<div></div>
+</body>
+</html>

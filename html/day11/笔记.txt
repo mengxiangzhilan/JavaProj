@@ -1,0 +1,42 @@
+复习：
+1.border:width style color;
+  style:solid,dashed,dotted,double
+  单边：
+  border-top/...
+  单边单属性
+  border-top-color
+
+  倒三角：
+  border:10px solid transparent;
+  border-top-color:black;
+  
+2.边框倒角 - border-radius
+  1)一个值：四个角 border-radius:val1;
+  2)两个值*：border-radius:val1 val2;
+    val1表示左上和右下
+    val2表示右上和左下
+  3)三个值*：border-radius:val1 val2 val3;
+    val1表示左上
+    val3表示右下
+    val2表示右上和左下
+  4)四个值*：border-radius:val1 val2 val3 val4;
+    从左上顺时针转一圈
+  5)特别用例：圆形边框
+    border-radius:50%
+
+3、边框阴影 - box-shadow
+  1)box-shadow:x-offset y-offset blur spread color inset
+  2)常见用法：
+    box-shadow:4px 4px 4px red;
+               x-o y-o blur color
+
+4、盒模型 box-model
+  1)盒模型包括：外边距margin，边框border，内边距padding，内容width+height
+  2)元素所占真实尺寸=margin*2+border*2+padding*2+width或height
+  3)margin:v1 v2 v3 v4;
+    -单边：margin-top/...
+    -特别用例：块元素水平居中
+     margin:0 auto;
+    -外边距合并问题：两个外边距相遇，取较大值
+    -BFC* - block format context
+      产生布局上下文：边框，...

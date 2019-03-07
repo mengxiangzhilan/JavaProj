@@ -1,0 +1,51 @@
+复习：
+1、CSS
+  内联
+  内部
+  外部
+2、语法：
+  selector{
+    prop:value;
+  }
+3、选择器：
+  1）基础：*,p,.cls,#id
+  2）层级：ul>li,ul a
+  3）伪类：:hover,:active,:visited,:link,:focus
+
+补充：
+优先级:
+<div id="d1">
+  <p id="p1">aaa</p>
+</div>
+#d1>p{color:blue}
+#p1{color:red}
+
+选择器类型    权值
+元素          1
+类            10
+伪类          10
+id            100
+内联          1000
+
+* 选择器表达式权值总和比较优先级
+* 如果优先级相同，在后面的起作用
+
+今日知识:
+1、尺寸：
+  1)% 相对单位，相对于父容器宽度
+  2)px 相对单位，相对于屏幕分辨率
+  3)em 相对单位，相对于当前元素字体尺寸，2em=字号*2
+  4)rem
+  相对单位，相对根元素字号，通常是html元素
+
+2、颜色单位
+  1）rgb(255,255,255)  rgba(0,0,0,0.5)
+         R   G   B          R G B A
+  2）十六进制 #FFFFFF-白 #FF0000-红 #0000FF-蓝 #FFF-简写白 #F00-简写红 
+  3）颜色名 red/orange/yellow/green/cyan/blue/purple
+
+3、溢出 - overflow
+  1）可选值visible/hidden/scroll/auto
+  2）垂直和水平方向
+     overflow-x
+     overflow-y

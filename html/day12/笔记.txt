@@ -1,0 +1,60 @@
+复习：
+1、边框倒角：border-radius
+2、盒模型：margin + border + padding + content
+  1)margin:
+    -块级随意使用
+    -行内元素仅margin-left和margin-right
+    -可以为负数
+  2)padding:
+    -块级和行内随意使用
+    -只能为正数
+
+今日知识：
+1、背景 - background  bg
+  1)background-color 背景色 bgc
+  2)background-image 背景图 bgi
+    background-image:url(img.jpg)
+    *可以设置渐变色 linear-gradient(...)
+  3)background-repeat 背景重复 bgr
+    -repeat:默认，垂直和水平方向都重复
+    -repeat-x:水平重复
+    -repeat-y:垂直重复
+    -no-repeat:不重复
+  4)background-size 背景图尺寸 CSS3  bgsz
+    -val1 val2   宽度 高度
+    -val1% val2% 百分比宽度 百分比高度
+    -cover 把背景图扩展至足够大，使背景图完全覆盖背景区域
+    -contain 把背景图扩展至足够大，使背景图宽度或者高度能够适应背景区域
+  5)background-attachment 背景图固定
+    -scroll：默认，随内容滚动
+    -fixed：固定位置
+  6)background-position 背景定位
+    -x y 
+    -x% y%
+    -left/center/right/top/bottom
+    -特殊用例：雪碧图 CSS Spirit
+  7)background-clip 背景裁切 **
+  8)background-origin 背景起始点 **
+  9)background:color image repeat attachment position;
+
+2、文本格式化
+  1)字体属性：
+    -字体 font-family:v1 v2;
+    -字号 font-size:v;
+    -粗体 font-weight:normal|bold|value;
+    -斜体 font-style:normal|italic
+    -小型大写* font-variant:normal|small-caps
+    -简写：
+    font:style variant weight size/line-height family
+  2)文本属性：
+    -颜色 color
+    -对齐 text-align:left|center|right
+    -修饰 text-decoration:none|underline|overline|line-through
+    -行高 line-height:value
+
+
+自学：
+1、样式库：Bootstrap
+2、CSS3：转换、动画
+3、移动端布局技术：**
+   响应式布局、弹性布局、FlexBox

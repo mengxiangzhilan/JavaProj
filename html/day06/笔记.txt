@@ -1,0 +1,44 @@
+复习：
+1、表格 - table
+  1)使用：
+  table
+    caption
+    thead
+      tr
+        th/td
+    tbody
+      tr
+        td
+    tfoot
+      tr
+        td
+
+  2)属性：
+    -尺寸 width/height
+    -跨行、跨列 rowspan/colspan
+    -对齐：
+      水平 align left/center/right
+      垂直 valign top/middle/bottom   vertical
+    -样式属性**：border/bgcolor/cellspacing/cellpadding
+
+今日知识：★
+1、表单 - form
+  1)使用表单
+    <form action="..." method="..." enctype="...">
+    	<input type="text">
+    	<input type="submit">
+    </form>
+    -action：处理表单的后台页面地址，可以是绝对或相对路径
+    -method：表单提交方法，可选值get/post
+      区别：get使用url编码传参，长度有限制（256）;post使用form-data方式传参，相对更安全。如果表单中有上传文件，必须用post
+    -enctype: 表单编码方式，可选值有：
+      application/x-www-form-urlencoded
+      multipart/form-data 仅在需要上传文件时，设置为该值
+2、表单控件：
+  1)输入框   input
+    类型 type：text/password/单选框radio/复选框checkbox
+    值   value：
+      对于submit是按钮文字
+  2)下拉菜单 select
+    配合 option 选项
+  3)文本域   textarea

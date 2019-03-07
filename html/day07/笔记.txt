@@ -1,0 +1,29 @@
+复习：
+1、表单
+  <form action="login.jsp" method="post">
+
+  </form>
+2、表单元素
+  1)input
+    type:text/password/radio/checkbox/submit/reset
+  2)select
+    option
+  3)textarea
+    cols/rows
+
+今日知识：
+1、input
+  type: file/submit/button/reset/hidden隐藏域
+  *H5中新出现type：
+   -邮箱email
+   -数字number
+   -地址url
+   -电话tel
+   -搜索search
+   -颜色color
+
+  *选择时间type
+   -datetime-local
+   -date
+   -time
+   -month

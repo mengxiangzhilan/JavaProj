@@ -1,0 +1,188 @@
+www.oschina.net
+segmentfault.com
+www.github.com//重要
+第五天
+表格--table
+caption
+thead
+tr>td
+tbody
+tfoot
+2)属性
+width/hight
+跨行，跨列rowspan/colspan
+对齐align--right/left（水平）valign--top/middle/bottom（垂直）
+第六天
+name只提交个后台，前台用id
+1表单-form
+<form action="" enctype="">
+	<input type="text">
+</form>
+~action:处理表单的后太页面地址，可以是绝对也可以是相对路径
+~method：表单的提交方法，可选值有get/post
+   区别：get使用url编码传参，长度有限制（256）
+         post使用form-data方式传参，相对更安全。如果表单中有上穿文件必须用post
+~enctype:表单编码方式，可选值有：
+	application /x-wwww-form-urlencoded
+	multipart/form-data分片式
+	仅在上传文件时，设置该值
+2表单控件
+1）输入框 input
+  类型type ：text/password/单选框radio/checkbox/submit/把表单回到初始状态reset
+   值 value：
+     对于
+     placeholder占位符，提示信息
+2）下拉菜单 select
+-option
+3）文本域 textarea
+-cols/rows行列
+第七天
+1.imput
+button可以先执行一段js代码校验一下
+reset重置
+submit默认提价交
+file文件
+hidden隐藏域，可以放用户id
+h5中新出现的
+-email邮箱
+-number数字
+-地址url
+-tel电话
+-serch搜素
+-color颜色
+选择时间type
+-datetime-local/date/time/month
+第八天
+1、CSS-Cascading Style Sheet
+使用：
+1）行内样式<div style="">
+2)内部样式<style>```</style>
+3)外部样式 
+创建一个style.css文件
+<link helf="style.css">
+//行内优先级最高，外部和内部优先级一样，谁后声明谁做主！
+*使用场景 从复用性和优先级考虑
+2、css选择器
+1）基础选则器
+-通用*{
+	···
+}
+-元素 div{···},p{```}
+-类 <div class="">
+.cls{```}
+-ID <div id="">
+#di{```}
+-群组选择器  。cls，#d1，p{···}
+2）层级选择器
+-子代选择器（不能隔代）
+>
+-后代选择器
+ (空格)，可以隔代
+3)伪类选择器
+-使用：定义
+-:hover,鼠标放上去会改变
+-:active,元素被激活时
+-:focus,元素获得焦点
+-:link,链接的正常状态
+-:visited,访问过的链接
+选择器表达式权值总和比较优先级，权值一样后面的起作用
+第九天
+1尺寸：
+1）%相对单位，相对父容器
+2)px相对单位，相对分辨率
+3）em相对单位，相对于当前字体尺寸，
+4）rem相对于根元素字号，通常是html元素
+5）cm，mm，pt等绝对单位
+2.颜色
+transparent透明
+1)rgb(255,255,255) rgba（0，0，0，0.5）最后是透明度0-1之间
+2）十六进制#FFFFFF #FF0000红#F00红
+3）颜色名 red/orange/yellow/green/cyan/blue/purple
+3、属性
+溢出-overflow
+1）可选值visible/hidden/scroll（滚动条）/auto
+2）垂直和水平方向 overflow-x overflow-y
+第十天
+1边框
+1）border:1px solid blick
+         width style color
+style：solid（实线）dasged（虚线）dotted，double
+2)分解写法：
+border-width/border-style/border-color
+3）消除边框：border：none；
+4)单边设置：
+border-left····
+5)特殊用法：倒3角
+border：10px solid transparent；
+border-tp-color:bleak;
+width:0;
+hight:0;
+2、焦点环 outline
+1)outline：1px solid red
+2）outline：0；
+2边框倒角
+一个值 四个角border-radius：val1；
+两个值 border-radius：val1 val2
+vui1坐上右下
+园形边框
+border-radius：50%
+3边框阴影
+1）box-shadow:x-offset y-offset blur spread color inset
+4盒模型
+1）盒模型包括外边距margin，边框border，内边距padding，内容width+height
+2）元素所占真正尺寸margin*2+bpeder*2+padding*2+width或height
+3）margin：v1 v2 v3 v4
+块级可随意使用
+行内仅margin-left，margin-rgiht
+单边margin-top/
+特别：块级元素水平剧中margin：0 auto；
+外边距合并问题，两个外边距相遇取较大值
+BFC block format context
+4）padding
+块级和行内随意使用
+只能为正数
+第12天
+1背景-background
+1）background-color 背景色
+2)background-image
+  background-image:url()
+  *可以设置渐变色linear-gradient
+3)background-repeat背景重复
+   -repreat：垂直和水平方向都重复
+   -repreat-x:水平重复
+   -repreat-y:垂直重复
+   -no-repreat
+4) background-size 背景图尺寸 css3
+   -val1 val2
+   -val% val%
+   -cover 吧背景图扩展至足够大，使背景图完全覆盖背景区域（保持长宽比）
+   -contain 包含 把背景图扩展至足够大，使背景图宽或高能够适应背景区域
+5）background-attachment 背景固定
+-scroll： 默认，
+-fixed:固定
+6）background-position 背景定位
+-x y
+- x% y%
+-left/center/ringt/top/bottom
+-雪碧图 css Spirit
+*7)backgroud-clip 背景裁切
+*80backgroud-origin：背景起始点
+9）backgroud-color image repeat attachment position
+2文本格式化
+1）字体属性
+-字体 font-family：v1v2
+-字号 font-size:v;
+-粗体 font-weight：normal|bold|value
+-斜体font-style：normal|ltalic
+-小型大写*font-variant：normal|small-caps
+-简写：font:style variant weight size/line-height(加斜杠可以设行高) family
+2）文本属性
+-颜色 color
+-对齐 text-align：left|center|right
+-修饰 text-
+decoration：none|underline|overline|line-through
+-行高line-hight:value
+自学的
+1bootstrap样式库
+2css3转换，动画
+3移动端的布局技术：响应式，弹性布局。Flexbox

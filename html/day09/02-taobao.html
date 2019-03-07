@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝登录</title>
+	<style>
+	.center-box{
+		/*固定宽度*/
+		width: 1200px;
+		/*水平居中*/
+		margin: 0 auto;
+	}
+	.login-box{
+		float: right;    
+		margin-top: 110px;
+        margin-right: 80px;
+        width: 350px;
+        height: 356px;
+        background-color: #fff;
+        /*内边距*/
+        padding: 20px;
+	}
+	.login-box input{
+		width: 240px;
+		height: 18px;
+		/*内边距*/
+		padding: 11px 8px 11px 50px;
+		/*背景重复*/
+		background-repeat: no-repeat;
+		/*边框*/
+		border: 1px solid #DDD;
+	}
+	#username{
+		/*背景图*/
+		background-image: url(user.png);
+	}
+	#pwd{
+		/*背景图*/
+		background-image: url(pwd.png);
+	}
+	form>div,
+	.login-box>div{
+		margin-top: 15px;
+	}
+	.forget-box{
+		/*右对齐*/
+		text-align: right;
+	}
+	.login-box a{
+		color: #6c6c6c;
+		text-decoration: none;
+	}
+	.login-box a:hover{
+		color: #f40;
+	}
+	.login-box a>img{
+		vertical-align: bottom;
+	}
+	/*绝对定位*/
+	.login-box{
+		position: relative;
+	}
+	#code{
+		position: absolute;
+		right: 6px;
+		top: 6px;
+	}
+	</style>
+</head>
+<body>
+	<!-- 页头 -->
+	<div>
+		<div class="center-box">
+			<!-- logo -->
+			<a href="http://www.taobao.com"
+			   style="text-decoration: none;">
+				<img src="logo.png">
+			</a>
+			<!-- 说明文字 -->
+			<p style="width: 50%;
+				display:inline-block;    
+				border: 1px solid #ffb4a8;
+			    background-color: #fef2f2;
+			    color: #6C6C6C;
+			    margin-left: 25%;">为确保您账户的安全及正常使用，依《网络安全法》相关要求，6月1日起会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！</p>
+			<!-- 建议链接 -->
+			<a href="#" style="text-decoration: none;
+			    color:#666;">
+				<img src="advise.png">
+				登录页面改进建议
+			</a>
+		</div>
+	</div>
+	
+	<!-- 内容 -->
+	<div style="    background-image: url(https://img.alicdn.com/tfs/TB1m7R1RVXXXXXZXXXXXXXXXXXX-2500-600.jpg);
+    height: 600px;background-position: center center;">
+    	<div class="center-box">
+    		<!-- 跳转链接 -->
+    		<a href="https://618.tmall.com/?spm=a2107.1.0.0.nOFj9h&wh_weex=true" style="
+				display:block;
+				width: 700px;
+				height:600px;
+				float: left;"></a>
+			<!-- 登录框 -->
+			<div class="login-box">
+				<img src="code.png" id="code">
+				<div>密码登录</div>
+				<form action="login.jsp">
+					<div>
+						<input type="text" id="username">
+					</div>
+					<div>
+						<input type="password" id="pwd">
+					</div>
+					<div>
+						<button>登录</button>
+					</div>
+				</form>
+				<div>
+					<a href="#">微博登录</a>
+					<a href="#">支付宝登录</a>
+				</div>
+				<div class="forget-box">
+					<a href="#">
+						<img src="weibo.png">
+						忘记密码
+					</a>
+					<a href="#"><img src="weibo.png">免费注册</a>
+				</div>
+			</div>
+    	</div>
+	</div>
+	<div>3</div>
+</body>
+</html>

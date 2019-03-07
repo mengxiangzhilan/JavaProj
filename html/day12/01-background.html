@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景</title>
+	<style>
+	#d1{
+		width: 100px;
+		height: 100px;
+		border: 1px solid #000;
+		background-image: url(earth.png);
+		background-repeat: repeat-x;
+	}
+	#d2{
+		height: 20px;
+		background-image: url(headbg.jpg);
+		background-repeat: repeat-x;
+	}
+	#d3{
+		width: 200px;
+		height: 100px;
+		border: 1px solid #000;
+		background-image: url(earth.png);
+		background-repeat: no-repeat;
+		-webkit-background-size: 100px 100px;
+		/*background-size: 100px 100px;*/
+		/*等效于上一行*/
+		/*background-size: 100% 100%;*/
+		/*cover保持长宽比*/
+		/*-webkit-background-size: cover;
+		background-size: cover;*/
+		/*contain适应宽或高*/
+		-webkit-background-size: contain;
+		background-size: contain;
+	}
+	body{
+		background-image: url(bg.jpg);
+		background-repeat: no-repeat;
+		-webkit-background-size: 100px 100px;
+		background-size: 100px 100px;
+		height: 3000px;
+		/*固定背景*/
+		background-attachment: fixed;
+		/*定位*/
+		/*background-position: right top;*/
+		background-position: center center;
+		background-position: 50% 50%;
+		background-position: 100px 100px;
+	}
+	input{
+		background-image: url(weibo.png);
+		background-repeat: no-repeat;
+		height: 30px;
+		border: 1px solid #DDD;
+		border-radius: 10px;
+		background-position: 6px center;
+		padding-left: 28px;
+		outline: none;
+	}
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+
+	<input type="text">
+
+	<!-- 雪碧图 -->
+	<style>
+	.logo{
+		background-image: url(icon.png);
+		width: 162px;
+		height: 47px;
+	}
+	.building{
+		background-image: url(icon.png);
+		width: 32px;
+		height: 32px;
+		background-position: 0 -50px;
+	}
+	.dc{
+		width: 32px;
+		height: 136px;
+		background-image: url(icon.png);
+		background-position: -368px 0;
+	}
+	.dc:hover{
+		background-position: -335px 0;
+	}
+	</style>
+	<div class="logo"></div>
+	<div class="building"></div>
+	<div class="dc"></div>
+
+	<style>
+	.jx{
+		width: 100px;
+		height: 100px;
+		background: #000 url(earth.png) no-repeat scroll right bottom;
+	}
+	</style>
+	<div class="jx"></div>
+</body>
+</html>

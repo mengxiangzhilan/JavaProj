@@ -1,0 +1,28 @@
+复习：
+1、标签属性：
+   <p id="a" title="abc"></p>
+   id 
+   title
+   class
+   style
+2、超链接 - a
+   <a href="url"></a>
+   href:元素或者页面地址
+     -绝对地址 
+     协议    域名            端口
+     http://www.lamco.com.cn:8080/
+     上下文   页面
+     tiaozao/index.jsp
+     -相对地址
+   target: 
+     -_self 
+     -_blank
+3、图片 - img  image
+  src：图片源，可设置图片的相对和绝对地址，图片格式支持三种常见格式：jpg、png、gif
+  alt：替换文字
+  * 图片链接：<a><img></a>
+
+4、元素显示模式：
+  1）块级：垂直布局p,h*,div
+  2）行内：水平布局a,span
+  3）行内块级：有宽高属性，且水平布局img

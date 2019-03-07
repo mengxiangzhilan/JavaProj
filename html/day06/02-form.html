@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<form action="http://127.0.0.1/login.php" method="post">
+		<!-- 文本框 -->
+		<input type="text" name="username">
+		<!-- 密码框 -->
+		<input type="password" name="password">
+		<!-- 提交按钮 -->
+		<input type="submit">
+	</form>
+
+	<!-- 注册表单 -->
+	<form action="register.php"
+		  method="post"
+		  enctype="multipart/form-data">
+		<!-- 邮箱 -->
+		邮箱<input type="text" name="email"><br>
+		<!-- 密码 -->
+		密码<input type="password" name="pwd"><br>
+		<!-- 密码确认 -->
+		密码确认<input type="password" name="confirm-pwd"><br>
+		<!-- 电话 -->
+		
+		<!-- 生日 -->
+
+		<!-- 性别 -->
+		性别：		
+		<label>
+			<input type="radio" 
+				name="sex" value="1">男
+		</label>
+		<label><input type="radio" name="sex" value="0">女</label>
+		<!-- 籍贯 -->
+		<select name="city">
+			<option value="0371">郑州</option>
+			<option value="0379">洛阳</option>
+			<option value="0378">三门峡</option>
+			<option value="0377">开封</option>
+			<option value="0376">焦作</option>
+		</select>
+
+		<!-- 爱好 -->
+		<input type="checkbox" name="hobby" value="basketball">篮球
+		<input type="checkbox" name="hobby" value="football">足球
+		<input type="checkbox" name="hobby" value="pingpang">乒乓球
+		<input type="checkbox" name="hobby" value="lol">英雄联盟
+		<input type="checkbox" name="hobby" value="wzry">王者荣耀
+
+		<!-- 简介 -->
+		<textarea name="introduction" cols="30" rows="10"></textarea>
+
+		<!-- 同意协议 -->
+		<input type="checkbox" name="agree" value="agree">
+		请勾选协议，表示您同意....
+		<input type="submit" value="注册">
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+HTML + CSS + JAVASCRIPT
+
+工具：
+Sublime
+1.创建HTML结构：!+tab
+2.快速创建元素：tag+tab
+3.创建复数元素：tag*n+tab
+4.Emmet插件安装：
+  1)有网
+  2)复制包管理安装代码：
+  import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+  3)ctrl+shift+p
+  4)install package
+  5)Emmet,回车安装
+
+HTML快速入门：
+1.标记语法 <tag>
+  1)双标签<tag>...</tag>
+  2)单标签<tag>
+  区别：双可以嵌套内容，单不行
+2.文本标签：
+  1)标题元素：h* *表示1-6  
+  2)段落元素：p
+
+作业：
+1.复习今天知识
+2.预习：分区元素div和span
+        图片img
+        超链接a
+  预习网站：
+  1）w3school.com
+  2）菜鸟教程runoob.com

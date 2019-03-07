@@ -1,0 +1,8 @@
+package design.AbstractFactoryPattern;
+
+public class red implements Color{
+    @Override
+    public void fill() {
+        System.out.println("Inside red::fill() .method");
+    }
+}

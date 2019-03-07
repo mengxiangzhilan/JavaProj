@@ -1,0 +1,37 @@
+复习：
+1、显示模式：
+  块级block
+  行内inline
+  行内块inline-block
+2、图片 img
+  src
+  alt
+  <a><img></a>
+
+今日内容：
+1.列表：显示结构化的数据
+  1）分类：有序、无序、定义
+  2）使用列表：
+     -ol/ul/dl
+     -li
+  3）有序列表：ol - order list
+  4）无序列表：ul - unorder list
+  5）属性：*
+     -type:项目符号类型
+       * 无序表：disc/square/circle
+       * 有序表：1/a/A/i/I
+       * 没有项目符号：none
+  6）列表嵌套：在列表项中又出现列表
+  7）定义列表：dl - definition list
+     -dt/dd  title/detail
+
+
+sublime使用：
+1.创建父子关系：div>img
+2.创建兄弟关系：img+p
+3.在上面添加行：ctrl+shift+enter
+4.在下面添加行：ctrl+enter
+
+
+小技巧：
+1.块级元素水平居中：margin: 0 auto;

@@ -1,0 +1,40 @@
+复习：
+1、列表：
+  1）ul/li
+  2）ol/li
+  3）dl/dt+dd
+
+今日知识：
+1、表格 - table
+  1)使用：
+  table 表格
+    caption 标题
+    thead 表头
+      tr 行
+        th/td 列
+    tbody
+      tr 行
+        td 列    
+    tfoot
+      tr 行
+        td 列
+
+  *简写形式：当表格只有数据时可以使用简写形式
+  table
+    tr
+      td
+
+  2)常用属性：
+    -尺寸：width/height 默认单位像素，可以设置%
+    -跨行/跨列：rowspan/colspan
+    -对齐方式*：align
+    -边框*：border 边框宽度，单位像素
+    -背景色*：bgcolor
+    -单元格外边距*：cellspacing
+    -单元格内边距*：cellpadding
+
+作业：
+1.复习表格使用，练习到熟练的程度
+2.完成一个计算器布局
+3.完成一个简历表格
+4.预习表单、表单元素、表单验证

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素</title>
+</head>
+<body>
+	<form action="register.jsp"
+	      method="post" id="f1" 
+	      enctype="multipart/form-data">
+	    <input type="hidden" name="uid" value="9527">
+	    用户名：
+	    <input type="text" 
+			   name="uname" 
+			   id="uname" 
+			   placeholder="请填写用户名">
+		上传头像：
+		<input type="file" name="avatar">
+
+		邮箱：
+		<input type="email">
+
+		年龄：
+		<input type="number" min="0" max="150">
+
+		个人网站
+		<input type="url">
+
+		请选择色调：
+		<input type="color">
+
+		生日：
+		<input type="datetime-local">
+		<input type="date">
+		<input type="time">
+		<input type="month">
+
+		from
+		<input type="date">
+		to
+		<input type="date">
+
+		<input type="submit">
+		<input type="button" value="校验提交" onclick="doValid()">
+		<input type="reset">
+	</form>
+	<script>
+		function doValid(){
+			// 检查用户名必填
+			if (uname.value != "") {
+				// 合法则提交表单
+				f1.submit();
+			}else{
+				// 提示错误
+				alert("亲，请填写用户名")
+			}
+		}
+	</script>
+</body>
+</html>
