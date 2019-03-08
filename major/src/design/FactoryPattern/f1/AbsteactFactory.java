@@ -1,0 +1,14 @@
+package design.FactoryPattern.f1;
+
+public interface AbsteactFactory {
+    /**
+     * 创建CPU对象
+     * @return CPU对象
+     */
+    public Cpu createCpu();
+    /**
+     * 创建主板对象
+     * @return 主板对象
+     */
+    public Mainboard createMainboard();
+}
