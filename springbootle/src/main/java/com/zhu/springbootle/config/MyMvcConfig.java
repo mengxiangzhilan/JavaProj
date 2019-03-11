@@ -21,7 +21,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/zhuzhuxia").setViewName("success");
     }
 
-
+/**
+ * xxxConfigurer能扩展配置
+ * xxxCustomizerb定制配置
+ * */
 
 
     //让所有WebMvcConfigurer起作用

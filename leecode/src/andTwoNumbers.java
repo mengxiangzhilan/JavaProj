@@ -29,5 +29,8 @@ public class andTwoNumbers {
             }
             return dumHead.next;
         }
+    public static  void main(String []args){
+
+    }
     }
 

@@ -1,7 +1,9 @@
 package com.zhu.springbootle.controller;
 
+import com.zhu.springbootle.exception.UserNotExistException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +15,10 @@ import java.util.Map;
 public class helloController {
     @ResponseBody
     @RequestMapping(value = "/hello")
-    public String hello(){
+    public String hello(@RequestParam("user")String user)
+    {if(user.equals("aaa")){
+        throw new UserNotExistException();
+    }
         return "hello wood";
     }
 //查数据展示
