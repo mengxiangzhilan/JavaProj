@@ -38,6 +38,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/main.html").setViewName("dashboard");//用于重定向
             }
 
+            //登录拦截器注册
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 //springboot做好了静态资源映射，不用烂

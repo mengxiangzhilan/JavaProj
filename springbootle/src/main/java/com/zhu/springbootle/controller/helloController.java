@@ -1,13 +1,13 @@
 package com.zhu.springbootle.controller;
 
 import com.zhu.springbootle.exception.UserNotExistException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -28,5 +28,12 @@ public class helloController {
         map.put("users",Arrays.asList("2","3","4"));
         return "success";
     }
-
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+    @ResponseBody
+    @GetMapping("/query")
+    public Map<String,Object>map(){
+        List<Map<String,Object>> list=jdbcTemplate.queryForList("select * from department");
+   return list.get(0);
+    }
 }

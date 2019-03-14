@@ -1,10 +1,12 @@
 package com.zhu.springbootle;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
+import sun.awt.SunHints;
 
 import java.util.Locale;
 
@@ -12,6 +14,7 @@ import java.util.Locale;
 //@ImportResource(locations={classpath:beans.xml})  //标记在主配置类上
 //springboot推荐给容器中添加组建的方式
 //配置类=====spring配置文件   具体看myappconfih类
+@MapperScan(value="com.zhu.springbootle.mapper")//mapper下所有包自动添加apper注解
 @SpringBootApplication
 public class SpringbootleApplication {
 
