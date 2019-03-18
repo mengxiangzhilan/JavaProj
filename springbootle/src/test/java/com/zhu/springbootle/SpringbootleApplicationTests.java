@@ -1,6 +1,8 @@
 package com.zhu.springbootle;
 
+import com.zhu.springbootle.bean.Employee;
 import com.zhu.springbootle.bean.Person;
+import com.zhu.springbootle.mapper.EmployeeMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -22,6 +24,8 @@ public class SpringbootleApplicationTests {
     Person person;
     @Autowired
     ApplicationContext ioc;
+    @Autowired
+    EmployeeMapper employeeMapper;
    Logger logger=  LoggerFactory.getLogger(getClass());//日志记录器
     @Test
     public void contextLoads() {
@@ -37,8 +41,9 @@ public class SpringbootleApplicationTests {
     @Test
     public void testHelloService() {
 
-        boolean b=ioc.containsBean("HelloService");
-        System.out.println(b);
+        /*boolean b=ioc.containsBean("HelloService");
+        System.out.println(b);*/
+        Employee employee=employeeMapper.getEmpById(1);
     }
     @Autowired
    DataSource dataSource;
@@ -49,4 +54,5 @@ public class SpringbootleApplicationTests {
         System.out.println(connection);
         connection.close();
     }
+
 }
